@@ -15,7 +15,9 @@
 
     <div class="d-flex align-items-center justify-content-between">
         
-        <a href="index.php" ><img src="./assets/images/organic-3.png" alt="biolife logo" width="135px" height="34"></a>
+            <div class="logo">
+              <h1 style="font-family: Montserrat, sans-serif; ">Pizza<span class="highlight" style="color: #a1ff69">Store</span></h1>
+            </div>
         
         <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
