@@ -1,54 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Restuarant Website</title>
+<?php
+  require_once('./home_header.php');
+  require_once('./home_navbar.php')
 
-    <!-- remix icon cdn -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
-      rel="stylesheet"
-    />
-
-    <!-- custom css file  -->
-    <link rel="stylesheet" href="style.css" />
-  </head>
+?>
   <body>
-    <!-- =========== header start ============ -->
-    <header class="header">
-      <nav class="nav">
-        <div class="container">
-          <div class="nav__wrapper">
-            <div class="logo">
-              <h1>Pizza<span class="highlight">Store</span></h1>
-            </div>
-
-            <div class="navigation">
-              <ul class="nav__menu">
-                <li class="nav__item">
-                  <a href="#home" class="nav__link">Home</a>
-                </li>
-                <li class="nav__item">
-                  <a href="#menu" class="nav__link">Menu</a>
-                </li>
-                <li class="nav__item">
-                  <a href="#about" class="nav__link">About Us</a>
-                </li>
-                <li class="nav__item">
-                  <a href="#blog" class="nav__link">Blog</a>
-                </li>
-              </ul>
-            </div>
-
-            <span class="mobile__menu"><i class="ri-menu-line"></i></span>
-          </div>
-        </div>
-      </nav>
-    </header>
-
-    <!-- =========== header end ============ -->
 
     <!-- =========== main start ============ -->
     <main>
@@ -72,7 +27,7 @@
             </div>
 
             <div class="hero__img">
-              <img src="./images/hero-img.png" alt="hero-img" />
+              <img src="./assets/images/hero-img.png" alt="hero-img" />
             </div>
           </div>
         </div>
@@ -89,7 +44,7 @@
           <div class="dishes__wrapper">
             <div class="dish__item">
               <div class="dish__img">
-                <img src="./images/dishes-01.png" alt="" />
+                <img src="./assets/images/dishes-01.png" alt="" />
               </div>
 
               <div class="dish__content">
@@ -113,7 +68,7 @@
 
             <div class="dish__item">
               <div class="dish__img">
-                <img src="./images/dishes-02.png" alt="" />
+                <img src="./assets/images/dishes-02.png" alt="" />
               </div>
 
               <div class="dish__content">
@@ -137,7 +92,7 @@
 
             <div class="dish__item">
               <div class="dish__img">
-                <img src="./images/dishes-03.png" alt="" />
+                <img src="./assets/images/dishes-03.png" alt="" />
               </div>
 
               <div class="dish__content">
@@ -168,7 +123,7 @@
         <div class="container">
           <div class="about__wrapper">
             <div class="about__img">
-              <img src="./images/burger.png" alt="" />
+              <img src="./assets/images/burger.png" alt="" />
             </div>
 
             <div class="about__content">
@@ -197,7 +152,7 @@
           <div class="menu__wrapper">
             <div class="menu__item">
               <div class="menu__img">
-                <img src="./images/product-01.png" alt="" />
+                <img src="./assets/images/product-01.png" alt="" />
               </div>
 
               <h3>American Pasta</h3>
@@ -221,7 +176,7 @@
 
             <div class="menu__item">
               <div class="menu__img">
-                <img src="./images/product-02.png" alt="" />
+                <img src="./assets/images/product-02.png" alt="" />
               </div>
 
               <h3>Quintao Nuts</h3>
@@ -245,7 +200,7 @@
 
             <div class="menu__item">
               <div class="menu__img">
-                <img src="./images/product-03.png" alt="" />
+                <img src="./assets/images/product-03.png" alt="" />
               </div>
 
               <h3>Buzz Noodles</h3>
@@ -289,7 +244,7 @@
             </div>
 
             <div class="offer__img">
-              <img src="./images/offer.png" alt="" />
+              <img src="./assets/images/offer.png" alt="" />
             </div>
           </div>
         </div>
@@ -306,7 +261,7 @@
           <div class="blog__wrapper">
             <div class="blog__item">
               <div class="blog__img">
-                <img src="./images/recipe-01.jpg" alt="" />
+                <img src="./assets/images/recipe-01.jpg" alt="" />
               </div>
               <div class="blog__content">
                 <h3>Better than takeout sesame chicken</h3>
@@ -321,7 +276,7 @@
 
             <div class="blog__item">
               <div class="blog__img">
-                <img src="./images/recipe-02.jpg" alt="" />
+                <img src="./assets/images/recipe-02.jpg" alt="" />
               </div>
               <div class="blog__content">
                 <h3>Better than takeout sesame chicken</h3>
@@ -336,7 +291,7 @@
 
             <div class="blog__item">
               <div class="blog__img">
-                <img src="./images/recipe-03.jpg" alt="" />
+                <img src="./assets/images/recipe-03.jpg" alt="" />
               </div>
               <div class="blog__content">
                 <h3>Better than takeout sesame biriyani</h3>
@@ -355,102 +310,12 @@
     </main>
     <!-- =========== main end ============ -->
 
-    <!-- =========== footer start ============ -->
-    <footer class="section footer">
-      <div class="container">
-        <div class="footer__wrapper">
-          <div class="footer__logo">
-            <div class="logo">
-              <h1>Pizza<span class="highlight">Day</span></h1>
-            </div>
-            <p>Subscribe to our newsletter</p>
-            <div class="subscribe__box">
-              <input type="email" placeholder="Your email" />
-              <button class="subscribe__btn">Subscribe</button>
-            </div>
-          </div>
+    <?php
 
-          <div class="footer__box">
-            <h3 class="footer__link-title">Information</h3>
-            <ul class="footer__menu">
-              <li class="footer__menu-item">
-                <a href="#about" class="footer__link">About Us</a>
-              </li>
-              <li class="footer__menu-item">
-                <a href="#" class="footer__link">Events</a>
-              </li>
-              <li class="footer__menu-item">
-                <a href="#" class="footer__link">Career</a>
-              </li>
-              <li class="footer__menu-item">
-                <a href="#" class="footer__link">Our Chefs</a>
-              </li>
-            </ul>
-          </div>
-
-          <div class="footer__box">
-            <h3 class="footer__link-title">Services</h3>
-            <ul class="footer__menu">
-              <li class="footer__menu-item">
-                <a href="#about" class="footer__link">Online Order</a>
-              </li>
-              <li class="footer__menu-item">
-                <a href="#" class="footer__link">24/7 Support</a>
-              </li>
-              <li class="footer__menu-item">
-                <a href="#" class="footer__link">Pre-Reservation</a>
-              </li>
-              <li class="footer__menu-item">
-                <a href="#" class="footer__link">Foodie Place</a>
-              </li>
-            </ul>
-          </div>
-
-          <div class="footer__box">
-            <h3 class="footer__link-title">Quick Links</h3>
-            <ul class="footer__menu">
-              <li class="footer__menu-item">
-                <a href="#menu" class="footer__link">Menu</a>
-              </li>
-              <li class="footer__menu-item">
-                <a href="#blog" class="footer__link">Blog</a>
-              </li>
-              <li class="footer__menu-item">
-                <a href="#about" class="footer__link">About Us</a>
-              </li>
-              <li class="footer__menu-item">
-                <a href="#" class="footer__link">Offer</a>
-              </li>
-            </ul>
-          </div>
-
-          <div class="footer__box">
-            <h3 class="footer__link-title">Social</h3>
-            <ul class="footer__menu">
-              <li class="footer__menu-item">
-                <a href="#" class="footer__link">Facebook</a>
-              </li>
-              <li class="footer__menu-item">
-                <a href="#" class="footer__link">Instagram</a>
-              </li>
-              <li class="footer__menu-item">
-                <a href="#" class="footer__link">Linkedin</a>
-              </li>
-              <li class="footer__menu-item">
-                <a href="#" class="footer__link">Twitter</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <p class="footer__copyright">
-          Developed by @Dev_Daniels. All rights reserved.
-        </p>
-      </div>
-    </footer>
-    <!-- =========== footer end ============ -->
+      require_once('./home_footer.php')
+    ?>
 
     <!-- main js file -->
-    <script src="app.js"></script>
+    <script src="./assets/js/app.js"></script>
   </body>
 </html>
