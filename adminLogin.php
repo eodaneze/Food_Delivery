@@ -41,6 +41,21 @@
         border: none;
         font-weight: 500;
         font-size: 20px;
+        cursor: pointer;
+    }
+    @media(max-width: 600px){
+        .container-main{
+        background-color: #f0f0f0;
+        width: 90%;
+        padding: 30px;
+        border-radius: 5px;
+    }
+    .form-1 input{
+        width: 200px;
+        padding: 15px 8px;
+        background-color: transparent;
+        border: 1px solid #ccc;
+    }
     }
 </style>
   <section class="all-register">
@@ -48,21 +63,23 @@
             <div class="register-main">
                   <div class="register-content">
                         <h1>Admin Login</h1>
-                        <div class="register-form">
-                              
-                              <div class="form-1">
-                                  <input type="email" placeholder="Enter Email">
-                              </div>
-                              <div class="form-1">
-                                  <input type="password" placeholder="Enter Password">
-                              </div>
-                              <div class="form-1">
-                                  <input type="password" placeholder="Confrim Password">
-                              </div>
-                              <div class="form-1">
-                                  <button>Login</button>
-                              </div>
-                        </div>
+                       <form action="./includes/adminLogin.php" method="post">
+                            <div class="register-form">
+                                    
+                                    <div class="form-1">
+                                        <input name="email" type="email" placeholder="Enter Email">
+                                    </div>
+                                    <div class="form-1">
+                                        <input name="password" type="password" placeholder="Enter Password">
+                                    </div>
+                                    <div class="form-1">
+                                        <input name="conpassword" type="password" placeholder="Confrim Password">
+                                    </div>
+                                    <div class="form-1">
+                                        <button name="login">Login</button>
+                                    </div>
+                                </div>
+                       </form>
                   </div>
             </div>
       </div>
