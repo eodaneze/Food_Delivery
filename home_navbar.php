@@ -20,6 +20,13 @@
                 <li class="nav__item">
                   <a href="#blog" class="nav__link">Blog</a>
                 </li>
+                <li class="nav__item">
+                  <a href="#blog" class="nav__link">Register | </a>
+                  <a href="" class="nav__link">Login</a>
+                </li>
+                <span class="add__to-cart"
+                    ><i class="ri-shopping-cart-line"></i
+                  ></span>
               </ul>
             </div>
 
