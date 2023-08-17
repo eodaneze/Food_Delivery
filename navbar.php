@@ -1,11 +1,22 @@
-!-- ======= Header ======= -->
+<?php
+  require_once('./includes/connection.php');
+
+  if(isset($_SESSION['adminId'])){
+    $id = $_SESSION['adminId'];
+    $sql = "SELECT * FROM admin WHERE admin_id = '$id'";
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+    $name = $row['name'];
+    $pic = $row['admin_pic'];
+  }
+
+?>
 <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-        <a href="index.html" class="logo d-flex align-items-center">
-            <img src="dashboard_assets/img/logo.png" alt="">
-            <span class="d-none d-lg-block">DanShop</span>
-        </a>
+        
+        <a href="index.php" ><img src="./assets/images/organic-3.png" alt="biolife logo" width="135px" height="34"></a>
+        
         <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
 
@@ -26,8 +37,8 @@
             <li class="nav-item dropdown pe-3">
 
                 <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-                    <img src="dashboard_assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-                    <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+                    <img src="./includes/admindp/<?=$pic?>" alt="Profile" class="rounded-circle">
+                    <span class="d-none d-md-block dropdown-toggle ps-2"><?=$name?></span>
                 </a><!-- End Profile Iamge Icon -->
 
                 <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">

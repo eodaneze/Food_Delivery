@@ -294,7 +294,8 @@
     </main><!-- End #main -->
 
 
-    <?php
+<?php
+  require_once('./alertify.php');
   require('./footer.php')
 
 ?>
