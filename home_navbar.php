@@ -1,3 +1,6 @@
+<?php
+  require_once('./includes/connection.php');
+?>
 <header class="header">
       <nav class="nav">
         <div class="container">
@@ -22,8 +25,26 @@
                 </li>
                 <li class="nav__item" style="display: flex; align-items: center; justify-content: center">
                   <span><i class="ri-account-circle-fill" style="color: white; font-size: 30px; position: relative; top: 5px; margin-right: 10px"></i></span>
-                  <a href="" class="nav__link nav_js">Register | </a>
-                  <a href="" class="nav__link nav_js2">Login</a>
+                  <?php  
+                     if(isset($_SESSION['userId'])){
+                        $user_id = $_SESSION['userId'];
+                        $sql = "SELECT * FROM user WHERE user_id = '$user_id'";
+                        $result = mysqli_query($conn, $sql);
+                        $row = mysqli_fetch_assoc($result);
+                        $name = $row['name'];
+                        $getName = explode(' ', $name);
+                        $getFirstName = $getName[0];
+                        ?>
+                            <a href="" class="nav__link nav_js">Welcome <?=$getFirstName?> |</a>
+                            <a href="" class="nav__link nav_js2">Logout</a>
+                        <?php
+                     }else{
+                        ?>
+                            <a href="" class="nav__link nav_js">Register | </a>
+                          <a href="" class="nav__link nav_js2">Login</a>
+                       <?php
+                     }
+                  ?>
                 </li>
                 <span class="add__to-cart"
                     ><i class="ri-shopping-cart-line"></i
