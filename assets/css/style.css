@@ -450,6 +450,41 @@ section {
   cursor: pointer;
 }
 
+
+/* single product */
+.all__product{
+  margin: 7% 0;
+}
+.product__wrapper{
+  display: flex;
+  column-gap: 2rem;
+}
+.product__img, .product__content{
+   width: 50%;
+}
+.product__img{
+  border: 1px solid var(--small-text-color);
+  padding: 10px;
+}
+.product__img img{
+  width: 100%;
+}
+.description i{
+  color: var(--primary-color);
+}
+.related__product{
+  margin-top: 4%;
+}
+.related__top{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.related__top p{
+  display: flex;
+  align-items: center;
+}
 /* footer style */
 
 .footer {

@@ -311,8 +311,8 @@
     <!-- =========== main end ============ -->
 
     <?php
-
-      require_once('./home_footer.php')
+      require_once('./alertify.php');
+      require_once('./home_footer.php');
     ?>
 
     <!-- main js file -->

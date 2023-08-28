@@ -35,11 +35,11 @@
                         $getName = explode(' ', $name);
                         $getFirstName = $getName[0];
                         ?>
-                            <a href="" class="nav__link nav_js">Welcome <?=$getFirstName?> |</a>
-                            <a href="" class="nav__link nav_js2">Logout</a>
+                            <a href="" class="nav__link">Welcome <?=$getFirstName?> |</a>
+                            <a href="./includes/logout.php" class="nav__link logout">Logout</a>
                         <?php
                      }else{
-                        ?>
+                         ?>
                             <a href="" class="nav__link nav_js">Register | </a>
                           <a href="" class="nav__link nav_js2">Login</a>
                        <?php
@@ -61,10 +61,14 @@
     <script>
         const navJs = document.querySelector('.nav_js');
         const navJs2 = document.querySelector('.nav_js2');
+        const logout = document.querySelector('.logout');
         navJs.addEventListener(('click'), () => {
               window.location.href = 'userRegister.php'
         })
         navJs2.addEventListener(('click'), () => {
               window.location.href = 'userLogin.php'
+        })
+        logout.addEventListener(('click'), () => {
+              window.location.href = './includes/logout.php'
         })
     </script>
