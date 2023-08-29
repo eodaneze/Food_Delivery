@@ -78,85 +78,48 @@
 
         <div class="all__product">
             <div class="product__wrapper">
+                 <?php 
+                     $sql = "SELECT * FROM products";
+                     $result = mysqli_query($conn, $sql);
+                     while($row = mysqli_fetch_assoc($result)){
+                       $pic = $row['pimage'];
+                       $pname = $row['pname'];
+                       $pcat = $row['pcat'];
+                       $pprice = $row['pprice'];
+                       $pstock = $row['pstock'];
+                       $id = $row['product_id'];
+                        ?>
+                           
+                           <div class="product__item">
+                                 <div class="product__img">
+                                   <img src="./includes/productImg/<?=$pic?>" alt="">
+                                 </div>
+                               <div class="product__content">
+                                   <h3><?=$pname?></h3>
+                                   <div class="ratings">
+                                       <span><i class="ri-star-s-fill"></i></span>
+                                       <span><i class="ri-star-s-fill"></i></span>
+                                       <span><i class="ri-star-s-fill"></i></span>
+                                       <span><i class="ri-star-s-fill"></i></span>
+                                       <span><i class="ri-star-half-s-line"></i></span>
+                                       <!-- <span>(23 reviews)</span> -->
+                                   </div>
+                                     <div class="product__bottom">
+                                         <div class="product__price">
+                                             <h3>$<?=number_format($pprice, 2)?></h3>
+                                         </div>
+                                         <div class="icons">
+                                             <a href=""><i class="ri-edit-box-line"></i></a>                                                                                               
+                                             <a href=""><i class="ri-delete-bin-6-line"></i></a>                                                                                               
+                                         </div>
+                                     </div>                                                                                                      
+           
+                               </div>
+                           </div>
+                        <?php
+                     }
+                 ?>
                 
-                <div class="product__item">
-                      <div class="product__img">
-                        <img src="./assets/images/product-01.png" alt="">
-                      </div>
-                    <div class="product__content">
-                        <h3>This is the product name</h3>
-                        <div class="ratings">
-                            <span><i class="ri-star-s-fill"></i></span>
-                            <span><i class="ri-star-s-fill"></i></span>
-                            <span><i class="ri-star-s-fill"></i></span>
-                            <span><i class="ri-star-s-fill"></i></span>
-                            <span><i class="ri-star-half-s-line"></i></span>
-                            <!-- <span>(23 reviews)</span> -->
-                        </div>
-                          <div class="product__bottom">
-                              <div class="product__price">
-                                  <h3>$300.00</h3>
-                              </div>
-                              <div class="icons">
-                                  <a href=""><i class="ri-edit-box-line"></i></a>                                                                                               
-                                  <a href=""><i class="ri-delete-bin-6-line"></i></a>                                                                                               
-                              </div>
-                          </div>                                                                                                      
-
-                    </div>
-                </div>
-                <div class="product__item">
-                      <div class="product__img">
-                        <img src="./assets/images/product-01.png" alt="">
-                      </div>
-                    <div class="product__content">
-                        <h3>This is the product name</h3>
-                        <div class="ratings">
-                            <span><i class="ri-star-s-fill"></i></span>
-                            <span><i class="ri-star-s-fill"></i></span>
-                            <span><i class="ri-star-s-fill"></i></span>
-                            <span><i class="ri-star-s-fill"></i></span>
-                            <span><i class="ri-star-half-s-line"></i></span>
-                            <!-- <span>(23 reviews)</span> -->
-                        </div>
-                          <div class="product__bottom">
-                              <div class="product__price">
-                                  <h3>$300.00</h3>
-                              </div>
-                              <div class="icons">
-                                  <a href=""><i class="ri-edit-box-line"></i></a>                                                                                               
-                                  <a href=""><i class="ri-delete-bin-6-line"></i></a>                                                                                               
-                              </div>
-                          </div>                                                                                                      
-
-                    </div>
-                </div>
-                <div class="product__item">
-                      <div class="product__img">
-                        <img src="./assets/images/product-01.png" alt="">
-                      </div>
-                    <div class="product__content">
-                        <h3>This is the product name</h3>
-                        <div class="ratings">
-                            <span><i class="ri-star-s-fill"></i></span>
-                            <span><i class="ri-star-s-fill"></i></span>
-                            <span><i class="ri-star-s-fill"></i></span>
-                            <span><i class="ri-star-s-fill"></i></span>
-                            <span><i class="ri-star-half-s-line"></i></span>
-                            <!-- <span>(23 reviews)</span> -->
-                        </div>
-                          <div class="product__bottom">
-                              <div class="product__price">
-                                  <h3>$300.00</h3>
-                              </div>
-                              <div class="icons">
-                                  <a href=""><i class="ri-edit-box-line"></i></a>                                                                                               
-                                  <a href=""><i class="ri-delete-bin-6-line"></i></a>                                                                                               
-                              </div>
-                          </div>                                                                                                      
-
-                    </div>
-                </div>
             </div>
         </div>
 </main>
