@@ -14,3 +14,7 @@ const hideMenu = () => {
 
 mobileMenu.addEventListener("click", showMenu);
 overlay.addEventListener("click", hideMenu);
+
+
+
+

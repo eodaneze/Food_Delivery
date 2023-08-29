@@ -224,14 +224,40 @@
                              <h3>$<?=number_format($subTotal, 2)?></h3>
                          </div>
                     </div>
+                    <input type="hidden" name="price" id="user_id" value="<?=$user_id?>">
                     <div class="checkout__btn">
-                          <button>Check out</button>
+                          <button onclick="payNow()">Check out</button>
                     </div>
               </div>    
            </div>
       </div>
 </div>
+
+ <!-- script to test the checkout without real payment -->
+ <script>
+         function payNow(){
+            var user_id = document.getElementById('user_id').value
+            var reference = generateReference();
+            console.log(reference);
+            if(reference){
+                window.location.href='./success.php?orderId='+reference+'&id='+user_id;
+            }
+         }
+          // Generate a unique reference for the transaction
+          function generateReference() {
+                var reference = '';
+                var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+                var charactersLength = characters.length;
+                
+                for (var i = 0; i < 10; i++) {
+                    reference += characters.charAt(Math.floor(Math.random() * charactersLength));
+                }
+                
+                return reference;
+                }
+    </script>
 <?php
+    
   require_once('./home_footer.php');
   
 ?>
