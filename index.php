@@ -42,77 +42,50 @@
           </div>
 
           <div class="dishes__wrapper">
-            <div class="dish__item">
-              <div class="dish__img">
-                <img src="./assets/images/dishes-01.png" alt="" />
-              </div>
+              <?php  
+                 $sql = "SELECT * FROM products";
+                 $result = mysqli_query($conn, $sql);
+                 while($row = mysqli_fetch_assoc($result)){
+                   $pic = $row['pimage'];
+                   $pname = $row['pname'];
+                   $pcat = $row['pcat'];
+                   $pprice = $row['pprice'];
+                   $pstock = $row['pstock'];
+                   $id = $row['product_id'];
+                    ?>
 
-              <div class="dish__content">
-                <h3>Papporoni Pizza</h3>
-                <div class="ratings">
-                  <span><i class="ri-star-s-fill"></i></span>
-                  <span><i class="ri-star-s-fill"></i></span>
-                  <span><i class="ri-star-s-fill"></i></span>
-                  <span><i class="ri-star-s-fill"></i></span>
-                  <span><i class="ri-star-half-s-line"></i></span>
-                </div>
+                      <form class="dish__item">
+                        <div class="dish__img">
+                          <img src="./includes/productImg/<?=$pic?>" alt="" />
+                        </div>
 
-                <div class="dish__content-bottom">
-                  <span class="dish__price">$23.99</span>
-                  <span class="add__to-cart"
-                    ><i class="ri-shopping-cart-line"></i
-                  ></span>
-                </div>
-              </div>
-            </div>
+                        <div class="dish__content">
+                          <h3><a href="./singleProduct.php?id=<?=$id?>&category=<?=$pcat?>"><?=$pname?></a></h3>
+                          <div class="ratings">
+                            <span><i class="ri-star-s-fill"></i></span>
+                            <span><i class="ri-star-s-fill"></i></span>
+                            <span><i class="ri-star-s-fill"></i></span>
+                            <span><i class="ri-star-s-fill"></i></span>
+                            <span><i class="ri-star-half-s-line"></i></span>
+                          </div>
 
-            <div class="dish__item">
-              <div class="dish__img">
-                <img src="./assets/images/dishes-02.png" alt="" />
-              </div>
+                          <div class="dish__content-bottom">
+                            <span class="dish__price">$<?=number_format($pprice, 2)?></span>
+                            <span class="add__to-cart"
+                              ><i class="ri-shopping-cart-line"></i
+                            ></span>
+                          </div>
+                        </div>
+                      </form>
+                    <?php
 
-              <div class="dish__content">
-                <h3>Pasta</h3>
-                <div class="ratings">
-                  <span><i class="ri-star-s-fill"></i></span>
-                  <span><i class="ri-star-s-fill"></i></span>
-                  <span><i class="ri-star-s-fill"></i></span>
-                  <span><i class="ri-star-s-fill"></i></span>
-                  <span><i class="ri-star-half-s-line"></i></span>
-                </div>
+                 }
+              
+              ?>
 
-                <div class="dish__content-bottom">
-                  <span class="dish__price">$19.99</span>
-                  <span class="add__to-cart"
-                    ><i class="ri-shopping-cart-line"></i
-                  ></span>
-                </div>
-              </div>
-            </div>
+           
 
-            <div class="dish__item">
-              <div class="dish__img">
-                <img src="./assets/images/dishes-03.png" alt="" />
-              </div>
-
-              <div class="dish__content">
-                <h3>Vegetable</h3>
-                <div class="ratings">
-                  <span><i class="ri-star-s-fill"></i></span>
-                  <span><i class="ri-star-s-fill"></i></span>
-                  <span><i class="ri-star-s-fill"></i></span>
-                  <span><i class="ri-star-s-fill"></i></span>
-                  <span><i class="ri-star-half-s-line"></i></span>
-                </div>
-
-                <div class="dish__content-bottom">
-                  <span class="dish__price">$29.99</span>
-                  <span class="add__to-cart"
-                    ><i class="ri-shopping-cart-line"></i
-                  ></span>
-                </div>
-              </div>
-            </div>
+          
           </div>
         </div>
       </section>
