@@ -46,9 +46,8 @@
                      }
                   ?>
                 </li>
-                <span class="add__to-cart"
-                    ><i class="ri-shopping-cart-line"></i
-                  ></span>
+                <i class="ri-shopping-cart-line"></i
+                  >
               </ul>
             </div>
 

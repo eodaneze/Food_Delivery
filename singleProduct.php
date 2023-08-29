@@ -77,9 +77,9 @@
                             <span class="dish__price">$<?=number_format($pprice, 2)?></span>
                           </div>
           
-                          <span class="add__to-cart"
-                            ><i class="ri-shopping-cart-line"></i
-                          ></span>
+                          <button>
+                             <span class="add__to-cart"><i class="ri-shopping-cart-line"></i></span>
+                          </button>
                         </div>
                       </div>
                       <?php

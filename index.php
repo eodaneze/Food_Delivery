@@ -54,7 +54,7 @@
                    $id = $row['product_id'];
                     ?>
 
-                      <form class="dish__item">
+                      <form action="./includes/cart.php" method="post" class="dish__item">
                         <div class="dish__img">
                           <img src="./includes/productImg/<?=$pic?>" alt="" />
                         </div>
@@ -68,12 +68,12 @@
                             <span><i class="ri-star-s-fill"></i></span>
                             <span><i class="ri-star-half-s-line"></i></span>
                           </div>
-
+                           <input type="hidden" name="product_id" value="<?=$id?>">
                           <div class="dish__content-bottom">
                             <span class="dish__price">$<?=number_format($pprice, 2)?></span>
-                            <span class="add__to-cart"
-                              ><i class="ri-shopping-cart-line"></i
-                            ></span>
+                            <button name="addToCart">
+                             <span class="add__to-cart"><i class="ri-shopping-cart-line"></i></span>
+                          </button>
                           </div>
                         </div>
                       </form>
