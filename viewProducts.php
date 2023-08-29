@@ -110,7 +110,7 @@
                                          </div>
                                          <div class="icons">
                                              <a href="./editProduct.php?id=<?=$id?>"><i class="ri-edit-box-line"></i></a>                                                                                               
-                                             <a href=""><i class="ri-delete-bin-6-line"></i></a>                                                                                               
+                                             <a href="./includes/delete.php?id=<?=$id?>"><i class="ri-delete-bin-6-line"></i></a>                                                                                               
                                          </div>
                                      </div>                                                                                                      
            
@@ -125,5 +125,6 @@
 </main>
 
 <?php
+require_once('./alertify.php');
  require_once("./footer.php")
 ?>
