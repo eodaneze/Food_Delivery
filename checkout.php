@@ -1,6 +1,21 @@
 <?php
   require_once('./home_header.php');
   require_once('./home_navbar.php');
+  if(isset($_SESSION['userId'])){
+    $id = $_SESSION['userId'];
+    $sql3 = "SELECT COUNT(*) AS carts FROM cart WHERE user_id = '$id'";
+    $result3 = mysqli_query($conn, $sql3);
+    $row3 = mysqli_fetch_assoc($result3);
+    $count = $row3['carts'];
+
+    $userSql = "SELECT * FROM user WHERE user_id = '$id'";
+    $userResult = mysqli_query($conn, $userSql);
+    $userRow = mysqli_fetch_assoc($userResult);
+    $address = $userRow['address'];
+    $phone = $userRow['phone'];
+    $email = $userRow['email'];
+    $uname = $userRow['name'];
+  }
 ?>
 <style>
   /* checkout page */
@@ -113,8 +128,9 @@
                       <div>
                           <h3>Customer</h3>
                           <p>Checking out as a Guest? You’ll be able to save your details to create an account with us later.</p>
-                          <p><i class="ri-checkbox-circle-fill"></i> <strong>Address: </strong> No 5 road Abakaliki</p>
-                          <p><i class="ri-checkbox-circle-fill"></i> <strong>Phone: </strong> +2348164869025</p>
+                          <p><i class="ri-checkbox-circle-fill"></i> <strong>Name: </strong> <?=$name?></p>
+                          <p><i class="ri-checkbox-circle-fill"></i> <strong>Address: </strong> <?=$address?></p>
+                          <p><i class="ri-checkbox-circle-fill"></i> <strong>Phone: </strong> <?=$phone?></p>
                       </div>
                  </div>
                  <div class="customer__details" style="align-items: center;">
@@ -150,37 +166,62 @@
                        <h3>Order Summary</h3>
                        <a href="">Edit cart</a>
                     </div>
-                    <h3>1 items</h3>
-                    <div class="checkout__items">
-                        <div class="checkout__item-left">
-                            <img src="./assets/images/product-01.png" alt="">
-                            <h3>Papporoni Pizza</h3>
-                        </div>
-                        <div class="checkout__item-right">
-                           <h3>$340.00</h3>
-                        </div>
-                    </div>
-                    <div class="checkout__items">
-                        <div class="checkout__item-left">
-                            <img src="./assets/images/product-01.png" alt="">
-                            <h3>Papporoni Pizza</h3>
-                        </div>
-                        <div class="checkout__item-right">
-                           <h3>$340.00</h3>
-                        </div>
-                    </div>
+                    <h3><?=$count?> items</h3>
+                    <?php 
+                         if(isset($_SESSION['userId'])){
+                          $user_id = $_SESSION['userId'];
+                          // $userSql = "SELECT * FROM user WHERE user_id = '$user_id'";
+                          // $userResult = mysqli_fetch_assoc($conn, $userSql);
+                          // $userRow =
+                          $sql = "SELECT product_id, quantity FROM cart WHERE user_id = '$user_id' ORDER BY created_at DESC";
+                          $result = mysqli_query($conn, $sql);
+                          // $tprice = 0;
+                          $subTotal = 0;
+                          while($row = mysqli_fetch_assoc($result)){
+                          $id = $row['product_id'];
+                          $sql2 = "SELECT * FROM products WHERE product_id = '$id'";
+                          $result2 = mysqli_query($conn, $sql2);
+                          $row2 = mysqli_fetch_assoc($result2);
+                          $name = $row2['pname'];
+                          $pimage = $row2['pimage'];
+                          $pprice = $row2['pprice'];
+                          
+                          $subTotal = $subTotal + $pprice;
+
+                             ?>
+                             
+                             <div class="checkout__items">
+                                 <div class="checkout__item-left">
+                                     <img src="./includes/productImg/<?=$pimage?>" alt="">
+                                     <h3><?=$name?></h3>
+                                 </div>
+                                 <div class="checkout__item-right">
+                                    <h3>$<?=number_format($pprice, 2)?></h3>
+                                 </div>
+                             </div>
+                             <?php
+                          }
+                       }
+                    
+                    
+                    ?>
+                    
                     <div class="checkout__total">
                          <div class="totals">
                              <h3>SUBTOTAL</h3>
-                             <h3>$23.00</h3>
+                             <h3>$<?=number_format($subTotal, 2)?></h3>
                          </div>
                          <div class="totals">
-                             <h3>SUBTOTAL</h3>
-                             <h3>$23.00</h3>
+                             <h3>Shippig</h3>
+                             <h3>$3.00</h3>
                          </div>
                          <div class="totals">
-                             <h3>SUBTOTAL</h3>
-                             <h3>$23.00</h3>
+                             <h3>Tax</h3>
+                             <h3>$3.00</h3>
+                         </div>
+                         <div class="totals">
+                             <h3>TOTAL</h3>
+                             <h3>$<?=number_format($subTotal, 2)?></h3>
                          </div>
                     </div>
                     <div class="checkout__btn">
