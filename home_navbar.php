@@ -8,7 +8,7 @@
         $count = $row3['carts'];
   }
 ?>
-<header class="header">
+<header class="header" style="position: sticky; top: 0; background: #13252f">
       <nav class="nav">
         <div class="container">
           <div class="nav__wrapper">
@@ -47,15 +47,27 @@
                         <?php
                      }else{
                          ?>
-                            <a href="" class="nav__link nav_js">Register | </a>
-                          <a href="" class="nav__link nav_js2">Login</a>
+                            <a href="./userRegister.php" class="nav__link">Register | </a>
+                          <a href="./userLogin.php" class="nav__link">Login</a>
                        <?php
                      }
                   ?>
                 </li>
                 <span>
 
-                 <a href="./carts.php"> <i style="font-size: 30px; color: white" class="ri-shopping-bag-line"><sup style="color: #A1FF69"><?=$count?></sup></i></a>
+                  <?php
+                    if(isset($_SESSION['userId'])){
+                      $id = $_SESSION['userId'];
+                      $sql3 = "SELECT COUNT(*) AS carts FROM cart WHERE user_id = '$id'";
+                          $result3 = mysqli_query($conn, $sql3);
+                          $row3 = mysqli_fetch_assoc($result3);
+                          $count = $row3['carts'];
+                          ?><a href="./carts.php"> <i style="font-size: 30px; color: white" class="ri-shopping-bag-line"><sup style="color: #A1FF69"><?=$count?></sup></i></a><?php
+                    }else{
+                         ?><a href="./carts.php"> <i style="font-size: 30px; color: white" class="ri-shopping-bag-line"><sup style="color: #A1FF69">0</sup></i></a><?php
+                      }
+
+                  ?>
                 </span>
               </ul>
             </div>

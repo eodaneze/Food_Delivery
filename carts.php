@@ -76,7 +76,7 @@
                          <h4>$<?=number_format($total, 2)?></h4>
                     </div>
                     <div class="checkout__btn">
-                          <button><a href="">Check out</a></button>
+                          <button><a href="./checkout.php">Check out</a></button>
                     </div>
              </div>
          </div>

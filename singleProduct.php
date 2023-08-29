@@ -24,7 +24,7 @@
 
 <div class="all__product">
      <div class="container">
-         <div class="product__wrapper">
+         <form action="./includes/cart.php" method="post" class="product__wrapper">
               <div class="product__img">
                   <img src="./includes/productImg/<?=$pic?>" alt="">
               </div>
@@ -36,14 +36,15 @@
                     <span><i class="ri-star-s-fill"></i></span>
                     <span><i class="ri-star-s-fill"></i></span>
                     <span><i class="ri-star-half-s-line"></i></span>
+                    <input type="hidden" name="product_id" value='<?=$id?>'>
                   </div>
                   <div class="description">
                       <h3><i class="ri-indent-decrease"></i> Description</h3>
                       <p><?=$pdetails?></p>
-                      <button class="learn__more"><a href="#">Add to cart</a></button>
+                      <button name="addToCart" class="learn__more">Add to cart</button>
                   </div>
               </div>
-         </div>
+          </form>
          <div class="related__product">
               <div class="related__top">
                   <h3>Related Products</h3>
