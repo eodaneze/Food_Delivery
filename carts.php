@@ -39,19 +39,20 @@
                             ?>
                             
                             
-                                <div class="cart__items">
+                                <form action="./includes/wishList.php" method="post" class="cart__items">
                                     <div class="cart__img-name">
                                         <img src="./includes/productImg/<?=$pimage?>" alt="">
                                         <h3><?=$name?></h3>
                                     </div>
                                     <div class="item__price">
                                         <h3>$<?=number_format($pprice, 2)?></h3>
+                                        <input type="hidden" name="product_id" value="<?=$id?>">
                                     </div>
                                     <div class="item__operations">
                                         <a href="./includes/deleteCart.php?id=<?=$id?>"><i class="ri-delete-bin-2-line" title="Delete cart"></i></a>
-                                        <a href=""><i class="ri-heart-add-fill" title="Save for later"></i></a>
+                                       <button name="wishList" style="background-color: transparent; border: none"> <a href=""><i class="ri-heart-add-fill" title="Save for later"></i></a></button>
                                     </div>
-                                </div>
+                                </form>
                             <?php
 
                         }
