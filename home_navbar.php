@@ -1,5 +1,12 @@
 <?php
   require_once('./includes/connection.php');
+  if(isset($_SESSION['userId'])){
+    $id = $_SESSION['userId'];
+    $sql3 = "SELECT COUNT(*) AS carts FROM cart WHERE user_id = '$id'";
+        $result3 = mysqli_query($conn, $sql3);
+        $row3 = mysqli_fetch_assoc($result3);
+        $count = $row3['carts'];
+  }
 ?>
 <header class="header">
       <nav class="nav">
@@ -46,8 +53,10 @@
                      }
                   ?>
                 </li>
-                <i class="ri-shopping-cart-line"></i
-                  >
+                <span>
+
+                  <i style="font-size: 30px; color: white" class="ri-shopping-bag-line"><sup style="color: #A1FF69"><?=$count?></sup></i>
+                </span>
               </ul>
             </div>
 
