@@ -109,7 +109,7 @@
                                              <h3>$<?=number_format($pprice, 2)?></h3>
                                          </div>
                                          <div class="icons">
-                                             <a href=""><i class="ri-edit-box-line"></i></a>                                                                                               
+                                             <a href="./editProduct.php?id=<?=$id?>"><i class="ri-edit-box-line"></i></a>                                                                                               
                                              <a href=""><i class="ri-delete-bin-6-line"></i></a>                                                                                               
                                          </div>
                                      </div>                                                                                                      
