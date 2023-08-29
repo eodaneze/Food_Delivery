@@ -55,7 +55,7 @@
                 </li>
                 <span>
 
-                  <i style="font-size: 30px; color: white" class="ri-shopping-bag-line"><sup style="color: #A1FF69"><?=$count?></sup></i>
+                 <a href="./carts.php"> <i style="font-size: 30px; color: white" class="ri-shopping-bag-line"><sup style="color: #A1FF69"><?=$count?></sup></i></a>
                 </span>
               </ul>
             </div>
