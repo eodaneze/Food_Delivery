@@ -588,6 +588,7 @@ section {
   /* height: 50vh; */
   padding: 20px;
   border-radius: 5px;
+  height: fit-content;
   
 }
 .cart__right{
@@ -596,6 +597,7 @@ section {
   /* height: 50vh; */
   padding: 20px;
   border-radius: 5px;
+  height: fit-content;
 }
 .cart__right h3{
 

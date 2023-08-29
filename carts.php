@@ -48,7 +48,7 @@
                                         <h3>$<?=number_format($pprice, 2)?></h3>
                                     </div>
                                     <div class="item__operations">
-                                        <a href=""><i class="ri-delete-bin-2-line" title="Delete cart"></i></a>
+                                        <a href="./includes/deleteCart.php?id=<?=$id?>"><i class="ri-delete-bin-2-line" title="Delete cart"></i></a>
                                         <a href=""><i class="ri-heart-add-fill" title="Save for later"></i></a>
                                     </div>
                                 </div>
@@ -82,6 +82,6 @@
      </div>
 </div>
 <?php
-//   require_once('./script.php');
+  require_once('./alertify.php');
   require_once('./home_footer.php');
 ?>
