@@ -98,6 +98,7 @@
 
 
 <?php
+require_once('./alertify.php');
   require_once("./footer.php")
 
 ?>

@@ -107,8 +107,14 @@
      border: none;
      padding: 8px 10px;
      border-radius: 5px;
-     background-color: red;
+     /* background-color: red; */
      color: white;
+   }
+   .pending{
+    background-color: red;
+   }
+   .approved{
+    background-color: green;
    }
 </style>
 <div class="all__account">
@@ -177,7 +183,7 @@
                                                    <p>
                                                         <span><?=$pname?></span>
                                                         <span>Order Id: <?=$ref_id?></span>
-                                                        <span><button class="pending"><?=$status?></button></span>
+                                                        <span><button class="<?=$status == 'Pending' ? 'pending' : 'approved'?>"><?=$status?></button></span>
                                                    </p>
                                               </div>
                                           </div>
