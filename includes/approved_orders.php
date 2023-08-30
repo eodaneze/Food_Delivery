@@ -40,6 +40,37 @@ session_start();
        
             }
             // move from approved order to shipped order
+         }elseif(isset($_POST['approved'])){
+            $sql2 = "SELECT * FROM approved_order WHERE order_id = '$order_id'";
+            $result2 = mysqli_query($conn, $sql2);
+            while($row2 = mysqli_fetch_assoc($result2)){
+               $user_id = $row2['user_id'];
+               $product_id = $row2['product_id'];
+               $status = $row2['status'];
+               $order_id = $row2['order_id'];
+               $ref_id = $row2['ref_id'];
+               $price = $row2['price'];
+   
+               $shippedSql = "INSERT INTO shipping(order_id, ref_id, product_id, user_id, price, status)VALUES('$order_id', '$ref_id', '$product_id','$user_id', '$price', '$status')";
+               $shippedResult = mysqli_query($conn, $shippedSql);
+   
+               $getShippingSql = "SELECT * FROM shipping WHERE order_id = '$order_id'";
+               $getShippingResult = mysqli_query($conn, $getShippingSql);
+               $getShippingRow = mysqli_fetch_assoc($getShippingResult);
+               $shippingStatus = $getShippingRow['status'];
+               $shippedId = $getShippingRow['order_id'];
+   
+               $updateSql = "UPDATE orders SET status = 'Shipped' WHERE order_id = '$shippedId'";
+               $updateResult = mysqli_query($conn, $updateSql);
+               if($updateResult){
+                  $_SESSION['success'] = 'Product have been shipped successfuly';
+                  header('location: ../order.php');
+                 }else{
+                    $_SESSION['error'] = 'Error shipping order';
+                    header('location: ../order.php');
+                 }
+             
+            }
          }
    }
 

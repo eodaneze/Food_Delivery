@@ -116,6 +116,9 @@
    .approved{
     background-color: green;
    }
+   .shipped{
+    background-color: #69D2F2;
+   }
 </style>
 <div class="all__account">
      <div class="container">
@@ -183,7 +186,7 @@
                                                    <p>
                                                         <span><?=$pname?></span>
                                                         <span>Order Id: <?=$ref_id?></span>
-                                                        <span><button class="<?=$status == 'Pending' ? 'pending' : 'approved'?>"><?=$status?></button></span>
+                                                        <span><button class="<?=$status == 'Pending' ? 'pending' : ($status == 'Approved' ? 'approved' : 'shipped')?>"><?=$status?></button></span>
                                                    </p>
                                               </div>
                                           </div>
