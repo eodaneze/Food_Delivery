@@ -16,7 +16,7 @@ require_once('./includes/connection.php');
          $status = 'Pending';
         //  $total = $total + $pprice;
 
-        $orderSql = "INSERT INTO orders(ref_id, product_id, user_id, price, status)VALUES ('$ref_id','$produt_id','$user_id','$tprice', '$status')";
+        $orderSql = "INSERT INTO orders(ref_id, product_id, user_id, price, status)VALUES ('$ref_id','$produt_id','$user_id','$pprice', '$status')";
         $orderResult = mysqli_query($conn, $orderSql);
         if($orderResult){
            $_SESSION['success'] = "Order placed successfully";
