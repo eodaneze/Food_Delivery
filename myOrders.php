@@ -1,6 +1,25 @@
 <?php
   require_once('./home_header.php');
   require_once('./home_navbar.php');
+
+
+  if(isset($_SESSION['userId'])){
+     $user_id = $_SESSION['userId'];
+     $sql = "SELECT * FROM user WHERE user_id = '$user_id'";
+     $result = mysqli_query($conn, $sql);
+     $row = mysqli_fetch_assoc($result);
+     $name = $row['name'];
+     $email = $row['email'];
+     $address = $row['address'];
+     $phone = $row['phone'];
+ 
+ 
+     $countOrder = "SELECT COUNT(*) AS product_order FROM orders WHERE user_id = '$user_id'";
+     $countResult = mysqli_query($conn, $countOrder);
+     $countRow = mysqli_fetch_assoc($countResult);
+     $orderCount = $countRow['product_order'];
+     
+   }
 ?>
 
 
@@ -119,41 +138,63 @@
                    </div>
               </div>
               <div class="account__right">
-                    <h3>Orders (2 items)</h3>
-                    <div class="order__wrapper">
-                          <div class="order__left">
-                              <div class="order__img">
-                                    <img src="./assets/images/product-01.png" alt="">
-                              </div>
-                              <div class="order__name">
-                                   <p>
-                                        <span>product name</span>
-                                        <span>Order Id:00000000000</span>
-                                        <span><button>Pending</button></span>
-                                   </p>
-                              </div>
-                          </div>
-                          <div class="order__right">
-                              <p>See Details</p>
-                          </div>
-                    </div>
-                    <div class="order__wrapper">
-                          <div class="order__left">
-                              <div class="order__img">
-                                    <img src="./assets/images/product-01.png" alt="">
-                              </div>
-                              <div class="order__name">
-                                   <p>
-                                        <span>product name</span>
-                                        <span>Order Id:00000000000</span>
-                                        <span><button>Pending</button></span>
-                                   </p>
-                              </div>
-                          </div>
-                          <div class="order__right">
-                              <p>See Details</p>
-                          </div>
-                    </div>
+                    <h3>Orders (<?=$orderCount?> items)</h3>
+                      <?php
+                          $sql = "SELECT * FROM orders WHERE user_id = '$user_id'";
+                          $result = mysqli_query($conn, $sql);
+                          if(mysqli_num_rows($result) > 0){
+
+                             $num = 1;
+                             while($row = mysqli_fetch_assoc($result)){
+                                 
+                                 $product_id = $row['product_id'];
+                                 $order_id = $row['order_id'];
+                                 $ref_id = $row['ref_id'];
+                                 $price = $row['price'];
+                                 $status = $row['status'];
+                                 
+                                //  get user details
+                                 $userSql = "SELECT * FROM user WHERE user_id = '$user_id'";
+                                 $userResult = mysqli_query($conn, $userSql);
+                                 $userRow = mysqli_fetch_assoc($userResult);
+                                 $uname = $userRow['name'];
+                                
+                                //  get product details
+ 
+                                    $productSql = "SELECT * FROM products WHERE product_id = '$product_id'";
+                                    $productResult = mysqli_query($conn, $productSql);
+                                    $productRow = mysqli_fetch_assoc($productResult);
+                                    $pimage = $productRow['pimage'];
+                                    $pname = $productRow['pname'];
+
+                                    ?>
+                                    <div class="order__wrapper">
+                                          <div class="order__left">
+                                              <div class="order__img">
+                                                    <img src="./includes/productImg/<?=$pimage?>" alt="">
+                                              </div>
+                                              <div class="order__name">
+                                                   <p>
+                                                        <span><?=$pname?></span>
+                                                        <span>Order Id: <?=$ref_id?></span>
+                                                        <span><button class="pending"><?=$status?></button></span>
+                                                   </p>
+                                              </div>
+                                          </div>
+                                          <div class="order__right">
+                                              <p>See Details</p>
+                                          </div>
+                                    </div>
+                                    
+                                    <?php
+                             }
+                          }else{
+                              echo 'No order yet!!';
+                          }
+                      
+                      
+                      ?>
+                   
               </div>
           </div>
      </div>
