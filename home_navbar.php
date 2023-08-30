@@ -42,7 +42,7 @@
                         $getName = explode(' ', $name);
                         $getFirstName = $getName[0];
                         ?>
-                            <a href="" class="nav__link">Welcome <?=$getFirstName?> |</a>
+                            <a href="./userAccount.php" class="nav__link">Welcome <?=$getFirstName?> |</a>
                             <a href="./includes/logout.php" class="nav__link logout">Logout</a>
                         <?php
                      }else{
